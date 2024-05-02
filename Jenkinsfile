@@ -11,7 +11,9 @@ pipeline {
     stages {
         stage('Checkout') {
             agent {
-                label 'docker-agent'
+                docker {
+                    image 'node:14-alpine'
+                }
             }
             steps {
                 checkout scm
@@ -20,7 +22,9 @@ pipeline {
 
         stage('Run Tests') {
             agent {
-                label 'docker-agent'
+                docker {
+                    image 'node:14-alpine'
+                }
             }
             steps {
                 dir('auth') {
