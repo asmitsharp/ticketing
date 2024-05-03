@@ -2,10 +2,10 @@ import express, { Request, Response } from "express";
 import { body } from 'express-validator';
 import jwt from "jsonwebtoken";
 
-import { DatabaseConnectionError } from "../errors/database-connection-error";
-import { BadRequestError } from "../errors/bad-request-error";
+import { DatabaseConnectionError } from "@ticketscx/common";
+import { BadRequestError } from "@ticketscx/common";
 import { User } from "../models/users";
-import { validateRequest } from "../middlewares/validate-request";
+import { validateRequest } from "@ticketscx/common";
 
 const router = express.Router();
 
