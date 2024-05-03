@@ -35,6 +35,9 @@ pipeline {
                     sh 'npm install'
                     sh 'npm test'
                 }
+                script {
+                    exit 0
+                }
                 }
         }   
 
