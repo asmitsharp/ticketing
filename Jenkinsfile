@@ -24,13 +24,19 @@ pipeline {
              agent {
                   docker {
                    image 'node:alpine'
-                   args '--user=501:20'
+                   args '-u root:root'
+                   reuseNode true
                  }
              }
              steps {
                 dir('auth') {
+                    sh 'rm -rf node_modules'
+                    sh 'rm package-lock.json'
                     sh 'npm install'
                     sh 'npm test'
+                }
+                script {
+                    exit 0
                 }
                 }
         }   
