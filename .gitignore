@@ -1,3 +1,4 @@
 
 node_modules/
+npm-cache/
 ticketing/auth/node_modules/
