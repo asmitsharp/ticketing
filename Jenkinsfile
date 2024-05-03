@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             agent {
                 docker {
-                    image 'node:14-alpine'
+                    image 'node:alpine'
                 }
             }
             steps {
@@ -23,7 +23,7 @@ pipeline {
         stage('Run Tests') {
             agent {
                 docker {
-                    image 'node:14-alpine'
+                    image 'node:alpine'
                 }
             }
             steps {
