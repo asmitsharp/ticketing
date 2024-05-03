@@ -28,11 +28,6 @@ pipeline {
                  }
              }
              steps {
-                sh 'apk add --no-cache bash'
-                sh 'apk add --no-cache curl'
-                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
-                sh '. ~/.nvm/nvm.sh && nvm install 18.16.0'
-                sh '. ~/.nvm/nvm.sh && nvm use 18.16.0'
                 dir('auth') {
                     sh 'npm install'
                     sh 'npm test'
