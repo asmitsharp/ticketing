@@ -32,7 +32,7 @@ pipeline {
                 dir('auth') {
                     sh 'rm -rf node_modules'
                     sh 'rm package-lock.json'
-                    sh 'npm install --omit=mongodb-memory-server'
+                    sh 'npm install --omit-dev=mongodb-memory-server'
                     sh 'npm test'
                 }
                 script {
