@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             agent {
                 docker {
-                    image 'node:18-jammy'
+                    image 'node:18-bullseye-slim'
                 }
             }
             steps {
@@ -23,7 +23,7 @@ pipeline {
         stage('Run Tests') {
              agent {
                   docker {
-                   image 'node:18-jammy'
+                   image 'node:18-bullseye-slim'
                    args '-u root:root'
                    reuseNode true
                  }
