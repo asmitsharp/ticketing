@@ -23,7 +23,7 @@ pipeline {
         stage('Run Tests') {
              agent {
                   docker {
-                   image 'node:18-bullseye-slim'
+                   image 'asmitsharp/custom-node'
                    args '-u root:root'
                    reuseNode true
                  }
@@ -32,7 +32,7 @@ pipeline {
                 dir('auth') {
                     sh 'rm -rf node_modules'
                     sh 'rm package-lock.json'
-                    sh 'npm install'
+                    sh 'npm install --omit=mongodb-memory-server'
                     sh 'npm test'
                 }
                 script {
