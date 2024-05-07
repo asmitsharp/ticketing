@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { app } from '../../app';
 import mongoose from 'mongoose';
+import { signin } from '../../test/test.utils';
 
 it('returns a 404 if the ticket is not found', async () => {
   const id = new mongoose.Types.ObjectId().toHexString();
@@ -14,7 +15,7 @@ it('returns the ticket if the ticket is found', async () => {
 
   const response = await request(app)
     .post('/api/tickets')
-    .set('Cookie', global.signin())
+    .set('Cookie', signin())
     .send({
       title,
       price,
